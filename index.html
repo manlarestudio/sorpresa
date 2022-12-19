@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Temporizador</title>
+		<style>
+			body {
+				background: cadetblue;
+			}
+			h2{ text-align: center; }
+			#contenedor {
+				background: white;
+				padding-top: 50px;
+				max-width:900px ;
+				min-height: 500px;
+				margin-top: 40px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			#btn1,#btn2 {
+				display: block;
+				margin:auto;
+			}
+			#btn2 {display:none;}
+			button { padding:10px;}
+			#nota{
+				display: none;
+				padding-top: 50px;
+			}	
+		</style>
+	</head>
+	<body>
+		<div id="contenedor">
+			<section>
+				<audio id="miAudio" src="sonido.mp3"></audio>
+				<h2 id="texto">=== Temporizador de prácticas ===</h2>  
+				<div id="boton">
+					<button id="btn1" onclick="tiempo()">Iniciar temporizador</button>
+					<button id="btn2" onclick="refrescar()">Terminar</button>
+				</div>
+				<h2 id="nota">Cuando escuches el sonido...<br><br>
+					Haz una inspiración de 6 segundos<br>
+					y después di mentalmente: <br><br>
+					"Soy consciente de que pienso"<br>
+					"Soy consciente de que siento"<br><br>
+					Pregúntate ¿qué depende de mí ahora mismo?
+				</h2>
+			</section>
+		</div>	
+		<script>
+			var miAudio=document.getElementById("miAudio");
+			// const miAudio = new Audio('sonido.mp3');
+			
+			function tiempo() {
+
+					var elemento = document.getElementById("btn1");
+					elemento.style.display = 'none';
+					var elemento = document.getElementById("btn2");
+					elemento.style.display = 'block';
+					var elemento = document.getElementById("nota");
+					elemento.style.display = 'block';			
+					document.getElementById("texto").innerHTML = "Temporizador activado";
+
+					//  setInterval(sonido,1800000);
+					setInterval(sonido,900000);
+			}
+
+			function sonido()
+			{
+				// alert('entró en sonido');
+				miAudio.play();
+			}
+
+			function refrescar() {
+				location.reload();
+			}
+		
+		</script>
+	</body>
+</html>
