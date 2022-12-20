@@ -30,6 +30,9 @@
 			#nota{
 				display: none;
 				padding-top: 50px;
+			}
+			#primero {
+				text-align: center;
 			}	
 		</style>
 	</head>
@@ -42,13 +45,23 @@
 					<button id="btn1" onclick="tiempo()">Iniciar temporizador</button>
 					<button id="btn2" onclick="refrescar()">Terminar</button>
 				</div>
-				<h2 id="nota">Cuando escuches el sonido...<br><br>
-					Haz una inspiración de 6 segundos<br>
-					y después di mentalmente: <br><br>
-					"Soy consciente de que pienso"<br>
-					"Soy consciente de que siento"<br><br>
-					Pregúntate ¿qué depende de mí ahora mismo?
-				</h2>
+				<div id="primero">
+					<h2> El intervalo de tiempo es
+					<input type="text" id="tem" value="15"> minutos <br><br>
+					Sonará un sonido en los minutos indicados <br>
+					Repetirá este proceso hasta que lo termines
+
+					</h2>
+				</div>
+				<div id="nota">
+					<h2>Cuando escuches el sonido...<br><br>
+						Haz una inspiración de 6 segundos<br>
+						y después di mentalmente: <br><br>
+						"Soy consciente de que pienso"<br>
+						"Soy consciente de que siento"<br><br>
+						Pregúntate ¿qué depende de mí ahora mismo?
+					</h2>
+				</div>
 			</section>
 		</div>	
 		<script>
@@ -56,9 +69,16 @@
 			// const miAudio = new Audio('sonido.mp3');
 			
 			function tiempo() {
+			
+				var elemento = document.getElementById("tem").value;
+				var num = parseFloat(elemento);
+				var num1= num*60;
+				var numc=num1*1000;
 
 					var elemento = document.getElementById("btn1");
 					elemento.style.display = 'none';
+					var elemento = document.getElementById("primero");
+					elemento.style.display = 'none';					
 					var elemento = document.getElementById("btn2");
 					elemento.style.display = 'block';
 					var elemento = document.getElementById("nota");
@@ -66,7 +86,7 @@
 					document.getElementById("texto").innerHTML = "Temporizador activado";
 
 					//  setInterval(sonido,1800000);
-					setInterval(sonido,900000);
+					setInterval(sonido,numc);
 			}
 
 			function sonido()
